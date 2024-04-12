@@ -1,0 +1,15 @@
+.container-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-body .grid-container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 80%;
+}
+
+.container-body .grid-container .card {
+    width: 300px;
+}

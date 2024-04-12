@@ -1,8 +1,18 @@
 import React from 'react'
+import NavigationBar from './Navbar.jsx'
+import Body from './Body.jsx'
+import Footer from './Footer.jsx'
+
+//Estilos de Bootstrap-React
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <NavigationBar />
+      <Body />
+      <Footer />
+    </div>
   )
 }
 
