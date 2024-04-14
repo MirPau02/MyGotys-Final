@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Grid, Item } from '@mui/material';
+import { Grid } from '@mui/material';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -18,6 +18,7 @@ const Body = () => {
                 {/* //TODO Mirar que tamaño pongo para Responsive */}
                 <Grid item xs={12} sm={12} md={6} lg={4}>
                     {/* //TODO manejar el maxWidth en una clase de CSS para manejar todas las cards */}
+                    {/* //TODO Array de una Card para que salgan todas */}
                     <Card className='card'>
                         <CardMedia
                             component="img"
