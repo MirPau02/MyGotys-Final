@@ -87,27 +87,33 @@ const Body = () => {
                 {videogames.map((game, index) => (
                     <Grid key={index} item xs={12} sm={12} md={6} lg={4}>
                         <Card className='card' style={{ height: '300px' }}>
-                            <CardMedia
-                                component="img"
-                                alt={game.title}
-                                height="140"
-                                // src={game.image}
-                                image={game.image}
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h7" component="div">
-                                    {game.title}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {game.creator}
-                                </Typography>
-                            </CardContent>
-                            <CardActions style={{ justifyContent: 'space-evenly' }}>
-                                <Button variant="outlined" size="small">Trailer</Button>
-                                <Button variant="outlined" size="small">Descripción</Button> 
-                                {/* onClick={setOpenDialog(true)} */}
-                                <Button variant="outlined" size="small">Comentarios</Button>
-                            </CardActions>
+                            <div className="card-image">
+                                <CardMedia
+                                    component="img"
+                                    alt={game.title}
+                                    height="140"
+                                    // src={game.image}
+                                    image={game.image}
+                                />
+                            </div>
+                            <div className="card-content">
+                                <CardContent>
+                                    <Typography gutterBottom variant="h7" component="div">
+                                        {game.title}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {game.creator}
+                                    </Typography>
+                                </CardContent>
+                            </div>
+                            <div className="card-buttons">
+                                <CardActions style={{ justifyContent: 'space-evenly' }}>
+                                    <Button variant="outlined" size="small">Trailer</Button>
+                                    <Button variant="outlined" size="small">Descripción</Button>
+                                    {/* onClick={setOpenDialog(true)} */}
+                                    <Button variant="outlined" size="small">Comentarios</Button>
+                                </CardActions>
+                            </div>
                         </Card>
                     </Grid>
                 ))}

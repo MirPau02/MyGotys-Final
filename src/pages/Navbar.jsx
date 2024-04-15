@@ -5,13 +5,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGamepad } from '@fortawesome/free-solid-svg-icons';
+
 function BarraSuperior() {
   return (
     <div className='container-navbar'>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          {/* //TODO Cambiar Navbar.Brand por el icono */}
-          <Navbar.Brand as={Link} to="/">MyGotys</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            <FontAwesomeIcon icon={faGamepad} /> MyGotys
+          </Navbar.Brand>
           {/* Hace que aparezca el menú hamburguesa */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

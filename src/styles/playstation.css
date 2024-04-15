@@ -1,4 +1,4 @@
-.card-about {
+.card-playstation {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
@@ -8,18 +8,18 @@
     border: 1px solid black;
 }
 
-.card-about .card-image {
+.card-playstation .card-image {
     margin-bottom: 20px;
 }
 
-.card-about .card-image img {
+.card-playstation .card-image img {
     width: 300px; /* Ajusta el tamaño máximo de la imagen */
     height: 300px; /* Permite que la imagen mantenga su relación de aspecto */
     border-radius: 50%;
     background-color: grey;
 }
 
-.card-about .card-description {
+.card-playstation .card-description {
     max-width: 500px;
     /* border: 1px solid black; */
     text-align: justify;
