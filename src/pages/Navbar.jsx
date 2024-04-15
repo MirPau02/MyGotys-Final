@@ -11,7 +11,7 @@ function BarraSuperior() {
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           {/* //TODO Cambiar Navbar.Brand por el icono */}
-          <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">MyGotys</Navbar.Brand>
           {/* Hace que aparezca el menú hamburguesa */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
