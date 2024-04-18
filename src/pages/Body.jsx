@@ -20,6 +20,26 @@ const Body = () => {
         }
     };
 
+    // Al hacer click te manda al trailer del juego
+    const handleTrailerClick = (game) => {
+        // Abre el trailer del juego en una nueva ventana
+        if (game.trailer) {
+            window.open(game.trailer, '_blank');
+        } else {
+            console.error(`No se encontró un trailer de ${game.title}`);
+        }
+    };
+
+    const handleDescriptionClick = (game) => {
+        console.log(`Descripción de ${game.title}`);
+        // Aquí puedes implementar la lógica para mostrar la descripción
+    };
+
+    const handleCommentsClick = (game) => {
+        console.log(`Comentarios de ${game.title}`);
+        // Aquí puedes implementar la lógica para mostrar los comentarios
+    };
+
     return (
         <div className='container-body'>
             <Grid container spacing={2} className='grid-container'>
@@ -49,12 +69,16 @@ const Body = () => {
                                 </Typography>
                             </CardContent>
                             {/* Acciones de la tarjeta (botones) */}
-                            {/* //TODO Grid container para cada botón*/}
                             <CardActions>
-                                <Button variant="outlined" size="small" onClick={() => console.log(`Trailer de ${game.title}`)}>Trailer</Button>
-                                <Button variant="outlined" size="small" onClick={() => console.log(`Descripción de ${game.title}`)}>Descripción</Button>
-                                {/* Puedes implementar la lógica para mostrar comentarios */}
-                                <Button variant="outlined" size="small" onClick={() => console.log(`Comentarios de ${game.title}`)}>Comentarios</Button>
+                                <Button variant="outlined" size="small" onClick={() => handleTrailerClick(game)}>
+                                    Trailer
+                                </Button>
+                                <Button variant="outlined" size="small" onClick={() => handleDescriptionClick(game)}>
+                                    Descripción
+                                </Button>
+                                <Button variant="outlined" size="small" onClick={() => handleCommentsClick(game)}>
+                                    Comentarios
+                                </Button>
                             </CardActions>
                         </Card>
                     </Grid>
