@@ -5,6 +5,7 @@
 - [] Cards con la información de siempre y botones con Responsive
 - [] En tamaño xs, sm el Dialog de Descripción no se podrá abrir (pero saldrá un mensaje de que en este tamaño no se puede abrir la descripción) pero en md y lg SI (Condición de mostrar de si tamaño es xs abre No y si es lg Si se puede)
 - [] https://www.geeksforgeeks.org/how-to-change-the-favicon-in-react-js/ Cambiar Favicon
+- [] Enlazar el botón de Github con --> https://github.com/MirPau02/MyGotys-Final.git
 
 # Getting Started with Create React App
 
