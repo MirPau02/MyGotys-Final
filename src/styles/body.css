@@ -9,3 +9,8 @@
     padding-bottom: 16px;
     width: 80%;
 }
+
+.container-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
