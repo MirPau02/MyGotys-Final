@@ -2,7 +2,7 @@ import React from 'react'
 import NavigationBar from '../Navbar.jsx'
 import Footer from '../Footer.jsx'
 import '../../styles/about.css'
-import perfilPhoto from '../../logo.svg'
+import perfilPhoto from '../../img/icons/loading.png'
 
 const About = () => {
     return (

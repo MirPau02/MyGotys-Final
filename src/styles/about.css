@@ -16,7 +16,8 @@
     width: 300px; /* Ajusta el tamaño máximo de la imagen */
     height: 300px; /* Permite que la imagen mantenga su relación de aspecto */
     border-radius: 50%;
-    background-color: grey;
+    /* background-color: grey; */
+    background-color: white;
 }
 
 .card-about .card-description {

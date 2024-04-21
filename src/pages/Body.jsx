@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
-import { obtenerJuegos } from '../api/api';
+import { obtenerJuegos } from '../api/api.js';
 import '../styles/body.css';
 
 const Body = () => {
@@ -32,12 +32,10 @@ const Body = () => {
 
     const handleDescriptionClick = (game) => {
         console.log(`Descripción de ${game.title}`);
-        // Aquí puedes implementar la lógica para mostrar la descripción
     };
 
     const handleCommentsClick = (game) => {
         console.log(`Comentarios de ${game.title}`);
-        // Aquí puedes implementar la lógica para mostrar los comentarios
     };
 
     return (
