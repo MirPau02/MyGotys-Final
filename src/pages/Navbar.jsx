@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -15,8 +14,23 @@ function BarraSuperior() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
+
+  const handleClose = async () => {
     setOpen(false);
+    // Aquí puedes realizar la lógica de envío del formulario
+    const formData = new FormData(document.getElementById('registration-form'));
+    const requestOptions = {
+      method: 'POST',
+      body: formData
+    };
+
+    try {
+      const response = await fetch('http://localhost/juegos.php', requestOptions);
+      const data = await response.json();
+      console.log(data); // Manejar la respuesta del servidor
+    } catch (error) {
+      console.error('Error al registrar el usuario:', error);
+    }
   };
 
   return (
@@ -26,7 +40,6 @@ function BarraSuperior() {
           <Navbar.Brand as={Link} to="/">
             <FontAwesomeIcon icon={faGamepad} /> MyGotys
           </Navbar.Brand>
-          {/* Hace que aparezca el menú hamburguesa */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -41,62 +54,50 @@ function BarraSuperior() {
               </NavDropdown>
 
               <Button className="nav-link" onClick={handleClickOpen}>Login</Button>
-              <Dialog
-                open={open}
-                onClose={handleClose}
-                PaperProps={{
-                  component: 'form',
-                  onSubmit: (event) => {
-                    event.preventDefault();
-                    const formData = new FormData(event.currentTarget);
-                    const formJson = Object.fromEntries(formData.entries());
-                    const email = formJson.email;
-                    console.log(email);
-                    handleClose();
-                  },
-                }}
-              >
-                <DialogTitle>Registráte</DialogTitle>
-                <DialogContent>
-                  <DialogContentText>
-                    Este registro es para poder comentar sobre los videojuegos que aparecen.
-                  </DialogContentText>
-                  <TextField
-                    autoFocus
-                    required
-                    margin="dense"
-                    id="email"
-                    name="email"
-                    label="Correo electrónico"
-                    type="email"
-                    fullWidth
-                    variant="standard"
-                  />
-                  <TextField
-                    required
-                    margin="dense"
-                    id="password"
-                    name="password"
-                    label="Contraseña"
-                    type="password"
-                    fullWidth
-                    variant="standard"
-                  />
-                  <TextField
-                    required
-                    margin="dense"
-                    id="name"
-                    name="name"
-                    label="Nombre de usuario"
-                    type="name"
-                    fullWidth
-                    variant="standard"
-                  />
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose}>Cancel</Button>
-                  <Button type="submit">Registrarme</Button>
-                </DialogActions>
+              <Dialog open={open} onClose={handleClose}>
+                <form id="registration-form" onSubmit={(event) => { event.preventDefault(); handleClose(); }}>
+                  <DialogTitle>Registráte</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText>
+                      Este registro es para poder comentar sobre los videojuegos que aparecen.
+                    </DialogContentText>
+                    <TextField
+                      autoFocus
+                      required
+                      margin="dense"
+                      id="email"
+                      name="email"
+                      label="Correo electrónico"
+                      type="email"
+                      fullWidth
+                      variant="standard"
+                    />
+                    <TextField
+                      required
+                      margin="dense"
+                      id="password"
+                      name="password"
+                      label="Contraseña"
+                      type="password"
+                      fullWidth
+                      variant="standard"
+                    />
+                    <TextField
+                      required
+                      margin="dense"
+                      id="name"
+                      name="name"
+                      label="Nombre de usuario"
+                      type="text"
+                      fullWidth
+                      variant="standard"
+                    />
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button type="submit">Registrarme</Button>
+                  </DialogActions>
+                </form>
               </Dialog>
             </Nav>
           </Navbar.Collapse>

@@ -20,14 +20,15 @@ const PlayStation = () => {
                 </div>
                 <div className="card-description">
                     <p> La PlayStation 5, o PS5, es la última consola de videojuegos
-                        desarrollada por Sony Interactive Entertainment. Fue lanzada en noviembre de 2020 y representa un salto significativo en términos de potencia y capacidad
-                        tecnológica con respecto a sus predecesoras. </p>
+                        desarrollada por Sony Interactive Entertainment. Fue lanzada en 
+                        noviembre de 2020 y representa un salto significativo en términos 
+                        de potencia y capacidad tecnológica con respecto a sus predecesoras. </p>
                 </div>
                 <div className="buttons-playstation">
                     <Button variant="outlined" size="small">
                         Componentes
                     </Button>
-                    <Button variant="outlined" size="small" target='_blank' href='https://www.youtube.com/watch?v=qAFaLKstLPM'>
+                    <Button variant="outlined" size="small" target='_blank' href='https://www.youtube.com/watch?v=RkC0l4iekYo'>
                         Vídeo Presentación
                     </Button>
                 </div>

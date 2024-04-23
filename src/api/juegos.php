@@ -1,4 +1,3 @@
-<!-- Este archivo debe ir al XAMPP HTDOCS -->
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, DELETE");
@@ -15,10 +14,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar la conexión
 if ($conn->connect_error) {
-    // Mostrar y registrar el error de conexión
     $error_message = "Error de conexión: " . $conn->connect_error;
-    error_log($error_message); // Registrar el error en el archivo de registro de errores
-    die($error_message); // Mostrar el mensaje de error y detener la ejecución del script
+    error_log($error_message);
+    die($error_message);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -39,3 +37,30 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode(array()); // Enviar un array vacío si no se encontraron juegos
     }
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener datos del formulario
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $name = $_POST['name'];
+
+    // Validar y escapar los datos (para prevenir inyecciones SQL)
+    $email = $conn->real_escape_string($email);
+    $name = $conn->real_escape_string($name);
+
+    // Hashear la contraseña
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Crear la consulta SQL para insertar un nuevo usuario
+    $sql = "INSERT INTO users (email, password, name) VALUES ('$email', '$hashedPassword', '$name')";
+
+    // Ejecutar la consulta SQL
+    if ($conn->query($sql) === TRUE) {
+        // Éxito al insertar el usuario
+        echo json_encode(array("message" => "Usuario registrado correctamente"));
+    } else {
+        // Error al insertar el usuario
+        echo json_encode(array("error" => "Error al registrar el usuario: " . $conn->error));
+    }
+}
+?>

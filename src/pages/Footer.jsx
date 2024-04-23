@@ -47,7 +47,7 @@ function Footer() {
                             <InstagramIcon />
                         </Button>
 
-                        <Button target='_blank' href='' variant="light" className="text-light btn-floating m-1 rounded-circle" style={{ backgroundColor: '#0082ca' }}>
+                        <Button target='_blank' href='https://www.linkedin.com/in/pau-miralles-d%C3%ADaz-664a80278/' variant="light" className="text-light btn-floating m-1 rounded-circle" style={{ backgroundColor: '#0082ca' }}>
                             <LinkedInIcon />
                         </Button>
 
