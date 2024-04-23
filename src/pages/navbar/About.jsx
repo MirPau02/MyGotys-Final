@@ -8,7 +8,6 @@ const About = () => {
     return (
         <div>
             <NavigationBar />
-            {/* //TODO Poner foto de perfil, tamaño y que sea circular */}
             <div className='card-about'>
                 <div className="card-image">
                     <img src={perfilPhoto} />

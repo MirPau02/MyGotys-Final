@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <NavigationBar />
-      {/* <Carrousel /> */}
+      <Carrousel />
       <Body />
       <Footer />
     </div>

@@ -5,6 +5,7 @@ import Home from '../pages/Home.jsx';
 import PlayStation from '../pages/navbar/PlayStation.jsx';
 import Xbox from '../pages/navbar/Xbox.jsx';
 import About from '../pages/navbar/About.jsx';
+import Login from '../pages/Login.jsx'
 
 export const Router = () => {
     return (
@@ -25,6 +26,10 @@ export const Router = () => {
                 <Route
                     path='/Xbox'
                     element={<Xbox />}
+                />
+                <Route
+                    path='/Login'
+                    element={<Login />}
                 />
             </Routes>
         </>

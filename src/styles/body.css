@@ -10,7 +10,7 @@
     width: 80%;
 }
 
-.container-buttons {
+.buttons-options-card {
     display: flex;
     justify-content: space-evenly;
 }

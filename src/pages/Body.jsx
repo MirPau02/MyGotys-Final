@@ -67,17 +67,19 @@ const Body = () => {
                                 </Typography>
                             </CardContent>
                             {/* Acciones de la tarjeta (botones) */}
-                            <CardActions>
-                                <Button variant="outlined" size="small" onClick={() => handleTrailerClick(game)}>
-                                    Trailer
-                                </Button>
-                                <Button variant="outlined" size="small" onClick={() => handleDescriptionClick(game)}>
-                                    Descripción
-                                </Button>
-                                <Button variant="outlined" size="small" onClick={() => handleCommentsClick(game)}>
-                                    Comentarios
-                                </Button>
-                            </CardActions>
+                            <div className='buttons-options-card'>
+                                <CardActions>
+                                    <Button variant="outlined" size="small" onClick={() => handleTrailerClick(game)}>
+                                        Trailer
+                                    </Button>
+                                    <Button variant="outlined" size="small" onClick={() => handleDescriptionClick(game)}>
+                                        Descripción
+                                    </Button>
+                                    <Button variant="outlined" size="small" onClick={() => handleCommentsClick(game)}>
+                                        Comentarios
+                                    </Button>
+                                </CardActions>
+                            </div>
                         </Card>
                     </Grid>
                 ))}
