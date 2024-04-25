@@ -8,6 +8,11 @@
 - [] En tamaño xs, sm el Dialog de Descripción no se podrá abrir (pero saldrá un mensaje de que en este tamaño no se puede abrir la descripción) pero en md y lg SI (Condición de mostrar de si tamaño es xs abre No y si es lg Si se puede)
 - [] https://www.geeksforgeeks.org/how-to-change-the-favicon-in-react-js/ Cambiar Favicon
 
+## :computer:Instalación del proyecto
+
+- `Funcionalidad 1`: descripción de la funcionalidad 1- `Funcionalidad 2`: descripción de la funcionalidad 2- `Funcionalidad 2a`: descripción de la funcionalidade 2a relacionada con la funcionalidad 2- `Funcionalidad 3`: descripción de la funcionalidad 3
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
