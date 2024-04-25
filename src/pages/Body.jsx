@@ -76,7 +76,7 @@ const Body = () => {
                                         Descripción
                                     </Button>
                                     <Button variant="outlined" size="small" onClick={() => handleCommentsClick(game)}>
-                                        Comentarios
+                                        Comentar
                                     </Button>
                                 </CardActions>
                             </div>
