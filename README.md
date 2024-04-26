@@ -7,7 +7,7 @@
 - `Funcionalidad 2a`: descripción de la funcionalidade 2a relacionada con la funcionalidad 2
 - `Funcionalidad 3`: descripción de la funcionalidad 3
 
- :construction_worker: Tareas
+## :construction_worker: Tareas
 - [X] NavBar con React-Bootstrap (en un principio lo único)
 - [X] Routes.jsx con el Path y todo lo necesario para que el NavBar funcione con Link to
 - [X] Arreglar los iconos del footer
