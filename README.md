@@ -8,6 +8,7 @@
 - `Funcionalidad 3`: descripción de la funcionalidad 3
 
 ## :information_source: Información del proyecto
+- Información del proyecto:
 
 ## :construction_worker: Tareas
 - [X] NavBar con React-Bootstrap (en un principio lo único)
