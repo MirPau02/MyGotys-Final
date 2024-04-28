@@ -3,8 +3,16 @@ import { Grid, Card, CardActions, CardContent, CardMedia, Button, Typography } f
 import { obtenerJuegos } from '../api/api.js';
 import '../styles/body.css';
 
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogActions from '@mui/material/DialogActions';
+import Divider from '@mui/material/Divider';
+
 const Body = () => {
     const [games, setGames] = useState([]);
+    const [openDialog, setOpenDialog] = useState({});
 
     useEffect(() => {
         cargarJuegos();
@@ -15,6 +23,13 @@ const Body = () => {
             const juegos = await obtenerJuegos();
             console.log(juegos); // Verificar en la consola los juegos obtenidos
             setGames(juegos);
+
+            // Inicializa el estado del Dialog para cada juego como cerrado
+            const initialOpenDialogState = juegos.reduce((acc, game) => {
+                acc[game.id] = false;
+                return acc;
+            }, {});
+            setOpenDialog(initialOpenDialogState);
         } catch (error) {
             console.error('Error al cargar juegos:', error);
         }
@@ -30,8 +45,11 @@ const Body = () => {
         }
     };
 
-    const handleDescriptionClick = (game) => {
-        console.log(`Descripción de ${game.title}`);
+    const handleOpenDescription = (gameId) => {
+        setOpenDialog(e => ({ ...e, [gameId]: true }));
+    };
+    const handleCloseDescription = (gameId) => {
+        setOpenDialog(e => ({ ...e, [gameId]: false }));
     };
 
     const handleCommentsClick = (game) => {
@@ -51,28 +69,20 @@ const Body = () => {
                                 // height="140"
                                 image={`data:image/jpeg;base64,${game.image}`} // Coloca la imagen base64 como fuente
                             />
-                            {/* Contenido de la tarjeta */}
                             <CardContent>
                                 <Typography gutterBottom variant="h6" component="div">
                                     {game.title}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    Creador: {game.creator}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Plataforma: {game.platform}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Género: {game.genre}
+                                    Desarrolladora: {game.creator}
                                 </Typography>
                             </CardContent>
-                            {/* Acciones de la tarjeta (botones) */}
                             <div className='buttons-options-card'>
                                 <CardActions>
                                     <Button variant="outlined" size="small" onClick={() => handleTrailerClick(game)}>
                                         Trailer
                                     </Button>
-                                    <Button variant="outlined" size="small" onClick={() => handleDescriptionClick(game)}>
+                                    <Button variant="outlined" size="small" onClick={() => handleOpenDescription(game.id)}>
                                         Descripción
                                     </Button>
                                     <Button variant="outlined" size="small" onClick={() => handleCommentsClick(game)}>
@@ -81,6 +91,33 @@ const Body = () => {
                                 </CardActions>
                             </div>
                         </Card>
+                        <div className="dialog-description">
+                            <Dialog
+                                open={openDialog[game.id]}
+                                onClose={() => handleCloseDescription(game.id)}
+                            >
+                                <DialogTitle id="alert-dialog-title" className='justify-center'>
+                                    {game.title}
+                                </DialogTitle>
+                                <Divider />
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-description">
+                                        <Typography variant="body2" color="text.secondary">
+                                            <strong>Plataforma:</strong> {game.platform}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            <strong>Género:</strong> {game.genre}
+                                        </Typography>
+                                        <Typography variant="body1" color="text.primary">
+                                            {game.description}
+                                        </Typography>
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions>
+                                    <Button onClick={() => handleCloseDescription(game.id)}>Cerrar</Button>
+                                </DialogActions>
+                            </Dialog>
+                        </div>
                     </Grid>
                 ))}
             </Grid>

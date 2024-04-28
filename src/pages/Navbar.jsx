@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { TextField, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { TextField, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, responsiveFontSizes } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad } from '@fortawesome/free-solid-svg-icons';
+import '../styles/navbar.css';
 
 function BarraSuperior() {
   const [open, setOpen] = useState(false);
@@ -25,7 +24,7 @@ function BarraSuperior() {
     };
 
     try {
-      const response = await fetch('http://localhost/juegos.php', requestOptions);
+      const response = await fetch('http://localhost/mygotys.php', requestOptions);
       const data = await response.json();
       console.log(data); // Manejar la respuesta del servidor
     } catch (error) {
@@ -35,7 +34,7 @@ function BarraSuperior() {
 
   return (
     <div className='container-navbar'>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" style={{backgroundColor: '#e4e4e4'}} >
         <Container>
           <Navbar.Brand as={Link} to="/">
             <FontAwesomeIcon icon={faGamepad} /> MyGotys
@@ -53,7 +52,7 @@ function BarraSuperior() {
                 <Link to="/Retro" className="dropdown-item">Retro</Link>
               </NavDropdown>
 
-              <Button className="nav-link" onClick={handleClickOpen}>Login</Button>
+              <Button className="nav-link" onClick={handleClickOpen} style={{}}>Registrarse</Button>
               <Dialog open={open} onClose={handleClose}>
                 <form id="registration-form" onSubmit={(event) => { event.preventDefault(); handleClose(); }}>
                   <DialogTitle>Registráte</DialogTitle>

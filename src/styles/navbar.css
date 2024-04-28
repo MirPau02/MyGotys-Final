@@ -1,0 +1,12 @@
+@media (min-width: 992px) {
+  .container-navbar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.container-navbar {
+  width: 100%;
+  background-color: #e4e4e4
+}

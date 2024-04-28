@@ -1,6 +1,6 @@
 export const obtenerJuegos = async () => {
     try {
-        const response = await fetch('http://localhost/juegos.php');
+        const response = await fetch('http://localhost/mygotys.php');
         if (!response.ok) {
             throw new Error(`Error al obtener la lista de juegos: ${response.status} ${response.statusText}`);
         }

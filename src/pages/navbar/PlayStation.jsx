@@ -13,7 +13,7 @@ const Playstation = () => {
             <div className='card-playstation'>
                 <Card sx={{ maxWidth: 500 }} style={{ margin: 20 }}>
                     <CardMedia
-                        sx={{ height: 200 }}
+                        sx={{ height: 300 }}
                         image={imagen}
                         title="Playstation"
                     />
@@ -29,7 +29,7 @@ const Playstation = () => {
                         </Typography>
                     </CardContent>
                     <CardActions style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                        <Button variant="outlined" size="small" target='_blank' href='https://www.google.com/search?q=video+presentacion+xbox+series+sx&oq=video+presentacion+xbox+series+sx&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDQxMDRqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8#'>
+                        <Button variant="outlined" size="small" target='_blank' href='https://www.youtube.com/watch?v=qAFaLKstLPM'>
                             PlayStation 5
                         </Button>
                         <Button variant="outlined" size="small">
