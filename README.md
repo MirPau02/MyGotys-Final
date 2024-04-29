@@ -15,4 +15,5 @@
 - [X] Routes.jsx con el Path y todo lo necesario para que el NavBar funcione con Link to
 - [X] Arreglar los iconos del footer
 - [ ] Poner el botón comentarios en disabled
+- [ ] Quitar initialOpenDialogState en Body.jsx
 - [X] Dialog de la información del juego y responsive
