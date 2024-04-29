@@ -21,15 +21,7 @@ const Body = () => {
     const cargarJuegos = async () => {
         try {
             const juegos = await obtenerJuegos();
-            console.log(juegos); // Verificar en la consola los juegos obtenidos
             setGames(juegos);
-
-            // Inicializa el estado del Dialog para cada juego como cerrado
-            const initialOpenDialogState = juegos.reduce((acc, game) => {
-                acc[game.id] = false;
-                return acc;
-            }, {});
-            setOpenDialog(initialOpenDialogState);
         } catch (error) {
             console.error('Error al cargar juegos:', error);
         }
@@ -46,10 +38,17 @@ const Body = () => {
     };
 
     const handleOpenDescription = (gameId) => {
-        setOpenDialog(e => ({ ...e, [gameId]: true }));
+        setOpenDialog((prevState) => ({
+            ...prevState,
+            [gameId]: true
+        }));
     };
+
     const handleCloseDescription = (gameId) => {
-        setOpenDialog(e => ({ ...e, [gameId]: false }));
+        setOpenDialog((prevState) => ({
+            ...prevState,
+            [gameId]: false
+        }));
     };
 
     const handleCommentsClick = (game) => {
@@ -66,7 +65,6 @@ const Body = () => {
                             <CardMedia
                                 component="img"
                                 alt={game.title}
-                                // height="140"
                                 image={`data:image/jpeg;base64,${game.image}`} // Coloca la imagen base64 como fuente
                             />
                             <CardContent>
@@ -74,18 +72,18 @@ const Body = () => {
                                     {game.title}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    Desarrolladora: {game.creator}
+                                    Fecha de lanzamiento: {game.date}
                                 </Typography>
                             </CardContent>
                             <div className='buttons-options-card'>
                                 <CardActions>
-                                    <Button variant="outlined" size="small" onClick={() => handleTrailerClick(game)}>
+                                    <Button size="small" onClick={() => handleTrailerClick(game)}>
                                         Trailer
                                     </Button>
-                                    <Button variant="outlined" size="small" onClick={() => handleOpenDescription(game.id)}>
+                                    <Button size="small" onClick={() => handleOpenDescription(game.id)}>
                                         Descripción
                                     </Button>
-                                    <Button variant="outlined" size="small" onClick={() => handleCommentsClick(game)}>
+                                    <Button size="small" disabled onClick={() => handleCommentsClick(game)}>
                                         Comentar
                                     </Button>
                                 </CardActions>
@@ -93,7 +91,7 @@ const Body = () => {
                         </Card>
                         <div className="dialog-description">
                             <Dialog
-                                open={openDialog[game.id]}
+                                open={openDialog[game.id] || false} // Ensuring it's always a boolean value
                                 onClose={() => handleCloseDescription(game.id)}
                             >
                                 <DialogTitle id="alert-dialog-title" className='justify-center'>
@@ -102,15 +100,13 @@ const Body = () => {
                                 <Divider />
                                 <DialogContent>
                                     <DialogContentText id="alert-dialog-description">
-                                        <Typography variant="body2" color="text.secondary">
-                                            <strong>Plataforma:</strong> {game.platform}
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            <strong>Género:</strong> {game.genre}
-                                        </Typography>
-                                        <Typography variant="body1" color="text.primary">
-                                            {game.description}
-                                        </Typography>
+                                        <strong>Desarrolladora:</strong> {game.creator}
+                                        <br />
+                                        <strong>Plataforma:</strong> {game.platform}
+                                        <br />
+                                        <strong>Género:</strong> {game.genre}
+                                        <br /><br />
+                                        <strong>{game.description}</strong>
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>
