@@ -55,7 +55,7 @@ function BarraSuperior() {
               <Button className="nav-link" onClick={handleClickOpen} style={{}}>Registrarse</Button>
               <Dialog open={open} onClose={handleClose}>
                 <form id="registration-form" onSubmit={(event) => { event.preventDefault(); handleClose(); }}>
-                  <DialogTitle>Registráte</DialogTitle>
+                  <DialogTitle>Regístrate</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
                       Este registro es para poder comentar sobre los videojuegos que aparecen.
@@ -93,7 +93,7 @@ function BarraSuperior() {
                     />
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button onClick={() => setOpen(false)}>Cancelar</Button>
                     <Button type="submit">Registrarme</Button>
                   </DialogActions>
                 </form>

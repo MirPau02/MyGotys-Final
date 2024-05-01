@@ -5,7 +5,6 @@
     align-items: center; /* Centra horizontalmente */
     height: 100%; /* Opcional: ajusta la altura según sea necesario */
     margin: 10px;
-    border: 1px solid black;
 }
 
 .card-about .card-image {
