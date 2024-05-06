@@ -8,6 +8,12 @@
 - `Instalar`: npm install
 - `Iniciar`: npm start
 
+  ```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+
 ## :information_source: Información del proyecto
 - Información del proyecto: Este proyecto se basa en los famosos premios de videojuegos que se dan cada año en los "The Game Awards" y se elige el mejor de estos en diferentes categorías. Lo he implementado a mi manera y he hecho que se muestren mis videojuegos favoritos.
 
