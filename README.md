@@ -8,7 +8,7 @@
 - `Instalar`: npm install
 - `Iniciar`: npm start
 
-  ```
+```
 function test() {
   console.log("notice the blank line before this function?");
 }
