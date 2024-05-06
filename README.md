@@ -5,8 +5,7 @@
 - `Requisitos`: Tener XAMPP y Node instalado
 - `Clonar el repositorio`: git clone https://github.com/MirPau02/MyGotys-Final.git
 - `Acceder`: cd MyGotys-Final
-- `Instalar`:
-```
+- `Instalar`:```
 # with npm:
 npm install
 
@@ -19,6 +18,7 @@ yarn install
 # with ultra:
 ultra install
 ```
+
 - `Iniciar`: npm start
 
 ## :information_source: Información del proyecto
